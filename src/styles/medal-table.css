@@ -1,0 +1,11 @@
+.medal-table-container {
+	width: 100%;
+	padding: 16px;
+	background-color: #fff;
+	color: #6b7280;
+}
+
+.medal-table {
+	width: 100%;
+	text-align: center;
+}
