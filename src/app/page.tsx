@@ -8,11 +8,11 @@ export default async function Home({
 }: {
   searchParams: { sort?: SortKey }
 }) {
-  const medalData = await getMedalData();  
+  const medalData = await getMedalData();
+  // TODO: parse url related params in a separate helper function
   const { sort } = await searchParams;
   const sortKey = sort || "gold";
   const sortedData = sortMedalData(medalData, sortKey);
-  console.log('TOMMY sortedData=', sortedData);
   return (
     <div>
       <MedalTable 

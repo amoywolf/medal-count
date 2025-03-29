@@ -2,6 +2,7 @@ import { MedalRecord, SortKey } from "@/types/medal";
 
 export const sortMedalData = (data: MedalRecord[], sortKey: SortKey): MedalRecord[] => {
   // If sortKey is not a valid SortKey, set to default "gold"
+  // TODO: use constants for sort keys instead of hardcode
   const validSortKeys: SortKey[] = ["gold", "silver", "bronze", "total"];
   const newSortKey: SortKey = validSortKeys.includes(sortKey) ? sortKey : "gold";
 

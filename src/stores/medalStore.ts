@@ -3,6 +3,8 @@ import { fetchMedalData } from "@/lib/api";
 
 let medalData: MedalRecord[] | null = null;
 
+// TODO: implement state management by using state management library
+
 export const getMedalData = async (): Promise<MedalRecord[]> => {
   if (medalData) {
     return medalData;

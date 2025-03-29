@@ -22,7 +22,6 @@ export default function MedalTable({
   };
 
   const handleSort = (key: SortKey) => {
-    console.log("TOMMY handleSort key=", key, sortKey);
     if (key === sortKey) {
       return;
     }
@@ -34,6 +33,13 @@ export default function MedalTable({
     params.set("sort", key);
     router.replace(`/?${params.toString()}`);
   };
+
+  // TODO:
+  // 1. Add a loading spinner while fetching data
+  // 2. Loop to render gold, silver, bronze, total <th> and <td> elements
+  // 4. Optimize UI CSS
+  // 5. Create separated UI components: flag cell, sortable header, medal cell, etc.
+  // 6. use contants for the static texts
 
   return (
     <div className="medal-table-container">
