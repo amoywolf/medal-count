@@ -1,11 +1,107 @@
 .medal-table-container {
+	max-width: 800px;
 	width: 100%;
 	padding: 16px;
 	background-color: #fff;
-	color: #6b7280;
 }
 
 .medal-table {
 	width: 100%;
+	border-collapse: collapse;
+	margin-top: 16px;
+	color: rgb(88, 80, 80);
 	text-align: center;
+	font-size: 18px;
+	font-weight: 600;
+}
+
+.medal-table-title {
+	font-size: 32px;
+	color: #6b7280;
+}
+
+.medal-header-cell {
+	padding: 8px;
+	text-align: center;
+}
+
+.medal-header-cell > div {
+  margin: auto; 
+}
+
+.circle {
+	width: 18px;
+	height: 18px;
+	border-radius: 50%;
+	margin-right: 8px;
+}
+
+.gold-color {
+	background-color: #ffa200;
+}
+
+.silver-color {
+	background-color: #bdc5d2;
+}
+
+.bronze-color {
+	background-color: #934c4c;
+}
+
+.total-header {
+	padding: 8px;
+	text-align: center;
+}
+
+.header-separator {
+	height: 3px;
+	background-color: #504b4b;
+}
+
+.medal-body td {
+	padding: 8px;
+	border-bottom: 1px solid #e5e7eb;
+}
+
+.country-data {
+	text-align: left;
+	display: flex;
+	align-items: center;
+	gap: 20px;
+}
+
+.number-data {
+	text-align: center;
+}
+
+.number-data > div {
+  margin: auto;
+}
+
+number-total {
+	color: black;
+}
+
+.hidden {
+	display: none;
+}
+
+.header-line {
+	top: 0px;
+	left: 0;
+	width: 80%;
+	height: 2px;
+	background-color: #444040;
+}
+
+.col-head {
+	margin-top: 4px;
+}
+
+.flag-icon {
+	width: 28px;
+	height: 17px;
+	background-size: 28px 221px;
+	background-repeat: no-repeat;
+	background-image: url("/assets/flags.png");
 }

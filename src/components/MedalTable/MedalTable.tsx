@@ -17,6 +17,10 @@ export default function MedalTable({
   const [sortKey, setSortKey] = useState<SortKey>(initialSortKey);
   const [sortedMedalData, setSortedMedalData] = useState(initialMedalData);
 
+  const flagPositionMappings = (orderIndex: number) => {
+    return { backgroundPosition: `0 -${orderIndex * 17}px` };
+  };
+
   const handleSort = (key: SortKey) => {
     console.log("TOMMY handleSort key=", key, sortKey);
     if (key === sortKey) {
@@ -33,46 +37,75 @@ export default function MedalTable({
 
   return (
     <div className="medal-table-container">
-      <div>MEDAL COUNT</div>
-      <table>
+      <div className="medal-table-title">MEDAL COUNT</div>
+      <table className="medal-table">
         <thead>
           <tr>
             <th></th>
             <th></th>
             <th></th>
             <th
+              className="medal-header-cell"
               onClick={() => handleSort("gold")}
             >
-              <div>GOLD</div>
+              <div
+                className={`header-line ${
+                  sortKey !== "gold" ? "hidden" : ""
+                }`}
+              ></div>
+              <div className="circle gold-color col-head"></div>
             </th>
             <th
+              className="medal-header-cell"
               onClick={() => handleSort("silver")}
             >
-              <div>SILV</div>
+              <div
+                className={`header-line ${
+                  sortKey !== "silver" ? "hidden" : ""
+                }`}
+              ></div>
+              <div className="circle silver-color col-head"></div>
             </th>
             <th
+              className="medal-header-cell"
               onClick={() => handleSort("bronze")}
             >
-              <div>BRON</div>
+              <div
+                className={`header-line ${
+                  sortKey !== "bronze" ? "hidden" : ""
+                }`}
+              ></div>
+              <div className="circle bronze-color col-head"></div>
             </th>
-            <th onClick={() => handleSort("total")}>
-              <div>TOTAL</div>
+            <th className="total-header" onClick={() => handleSort("total")}>
+              <div
+                className={`header-line ${
+                  sortKey !== "total" ? "hidden" : ""
+                }`}
+              ></div>
+              <div className="col-head">TOTAL</div>
             </th>
+          </tr>
+          <tr>
+            <td colSpan={7} className="header-separator"></td>
           </tr>
         </thead>
         <tbody className="medal-body">
           {sortedMedalData.map((record, index) => (
             <tr key={index}>
               <td>{index + 1}</td>
-              <td>
-                <span>{record.code}-Flag</span>&nbsp;&nbsp;&nbsp;
+              <td className="country-data">
+                <span
+                className="flag-icon"
+                style={flagPositionMappings(record.orderIndex || 0)}
+                ></span>
                 <span>{record.code}</span>
               </td>
               <td></td>
-              <td>{record.gold}</td>
-              <td>{record.silver}</td>
-              <td>{record.bronze}</td>
-              <td>{record.total}</td>
+              <td className="number-data">{record.gold}</td>
+              <td className="number-data">{record.silver}</td>
+              <td className="number-data">{record.bronze}</td>
+              <td className="number-data number-total">{record.total}</td>
             </tr>
           ))}
         </tbody>
